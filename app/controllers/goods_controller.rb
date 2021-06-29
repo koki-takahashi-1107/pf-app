@@ -9,7 +9,5 @@ class GoodsController < ApplicationController
       @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
       
     end
-    
   end
-  
 end
