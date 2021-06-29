@@ -1,0 +1,17 @@
+<h2> 投稿一覧 </h2>
+
+#タグリスト
+<% @tag_list.each do |list| %>
+  <span>
+    <%= link_to list.tag_name, tag_posts_path(post_tag_id: list.id) %>
+    <%= "(#{list.posts.count})" %>
+</br>
+#タグによって絞り込んだ投稿一覧
+<%= "タグが ─ " %>
+<strong><%= @tag.tag_name %></strong>
+<%= " ─ の投稿一覧" %>
+</br>
+<% @post_images.each do |post| %>
+  <%= link_to post_imaga.title, post_imaga %>
+</br>
+<%= link_to 'ホーム', user_path %>

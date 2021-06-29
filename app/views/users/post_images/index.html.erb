@@ -1,0 +1,17 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2 class="mt-3">タグリスト</h2>
+      <% @tag_list.each do |list| %>
+      <table>
+        <tb><%= link_to list.tag_name, post_images_tag_path(tag_id: list.id) %>
+            <%= "(#{list.post_images.count})" %>
+         </tb>
+      </table>
+      <% end %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <%= render 'index',post_images: @post_images %>
+    </div>
+  </div>
+</div>

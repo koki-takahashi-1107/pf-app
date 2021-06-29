@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">画像投稿フォーム</h5>
+      <div class="form-body p-4">
+        <% if @post_image.errors.any? %>
+          <%= @post_image.errors.count %>件のエラーが発生しました
+          <% @post_image.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
+        <%= form_with model: @post_image, local:true do |f| %>
+          <%= f.attachment_field :image, class: "w-100" %>
+          <div class="input-group mb-3 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-images"></i></span>
+            </div>
+            <%= f.text_field :title, class:"form-control", placeholder:"タイトル" %>
+          </div>
+          <%= f.text_area :description, class:"form-control", rows:"3", placeholder:"説明はこちらにお書きください" %>
+          <hr>
+          <li><%= "半角スペースを入力することで複数のタグを付けることができます。" %></li>
+          <li><%= "例：整備 カスタム 洗車" %></li>
+          <%= f.text_field :tag_name %>
+          </br>
+          <div class="form-group">
+          <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

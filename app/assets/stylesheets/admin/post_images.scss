@@ -1,0 +1,19 @@
+// Place all the styles related to the admin/post_images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.card-list-containar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-body {
+    display: flex;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+

@@ -1,0 +1,59 @@
+<div class="container" style="min-height: 100vh;">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <h2>新規登録</h2>
+
+        <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+
+          <div class="field">
+            <%= f.label :name %>
+            <p class="control has-icons-left">
+              <%= f.text_field :name, autofocus: true, style: 'width:80%;' %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <%= f.label :email %>
+             <p class="control has-icons-left">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", style: 'width:80%;' %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+             </p>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+             <p class="control has-icons-left">
+              <%= f.password_field :password, autocomplete: "new-password", style: 'width:80%;' %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+             </p>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %>
+             <p class="control has-icons-left">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", style: 'width:80%;' %>
+             <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+             </p>
+          </div>
+          <div class="actions mt-3">
+            <%= f.submit "新規登録", class: 'btn btn-outline-info mb-3' %>
+          </div>
+
+        <% end %>
+        <%= render "users/shared/links" %>
+      </div>
+    </div>
+  </div>
